@@ -12,6 +12,7 @@
 		552E421D1E3BE772001E75F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552E421B1E3BE772001E75F1 /* Main.storyboard */; };
 		552E421F1E3BE772001E75F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 552E421E1E3BE772001E75F1 /* Assets.xcassets */; };
 		552E42221E3BE772001E75F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552E42201E3BE772001E75F1 /* LaunchScreen.storyboard */; };
+		557946D11E3BF29A007CB2B0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557946D01E3BF29A007CB2B0 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		552E421E1E3BE772001E75F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		552E42211E3BE772001E75F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		552E42231E3BE772001E75F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		557946D01E3BF29A007CB2B0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				557946D11E3BF29A007CB2B0 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 			children = (
 				552E42161E3BE772001E75F1 /* iOSGeoCodingSample */,
 				552E42151E3BE772001E75F1 /* Products */,
+				557946CF1E3BF29A007CB2B0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +66,14 @@
 				552E42231E3BE772001E75F1 /* Info.plist */,
 			);
 			path = iOSGeoCodingSample;
+			sourceTree = "<group>";
+		};
+		557946CF1E3BF29A007CB2B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				557946D01E3BF29A007CB2B0 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +309,7 @@
 				552E42281E3BE772001E75F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
