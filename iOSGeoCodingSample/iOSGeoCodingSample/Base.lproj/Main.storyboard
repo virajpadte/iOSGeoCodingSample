@@ -12,13 +12,13 @@
         <!--Places-->
         <scene sceneID="uwF-nP-Z9e">
             <objects>
-                <tableViewController id="Eom-Vl-0zZ" sceneMemberID="viewController">
+                <tableViewController id="Eom-Vl-0zZ" customClass="TableViewController" customModule="iOSGeoCodingSample" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="kgt-do-jGy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="e5S-5G-BAZ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="e5S-5G-BAZ">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e5S-5G-BAZ" id="bEZ-m1-hLt">
@@ -35,10 +35,13 @@
                     <navigationItem key="navigationItem" title="Places" id="yQ3-a3-Ril">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="h5h-Vk-46D">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="pHE-ws-cLU"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="toMap" id="pHE-ws-cLU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="table" destination="kgt-do-jGy" id="1ch-8y-taN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dM1-Ww-Aod" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
