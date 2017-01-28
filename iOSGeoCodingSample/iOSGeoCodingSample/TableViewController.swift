@@ -16,6 +16,7 @@ class TableViewController: UITableViewController {
     var tempPlacesDict = [String : [String : CLLocationDegrees]]()
     var selectedLat:CLLocationDegrees = 0.0
     var selectedLong:CLLocationDegrees = 0.0
+    var selectedName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,13 +60,14 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("after")
         let selectedLocation = Array(tempPlacesDict.keys)[indexPath.row]
+        selectedName = selectedLocation
         if let selectedData = tempPlacesDict[selectedLocation]! as? [String : CLLocationDegrees]{
             selectedLat = selectedData["lattitude"]!
             selectedLong = selectedData["longitude"]!
             print("passed")
             print(selectedLong)
         }
-        performSegue(withIdentifier: "toMap", sender: nil)
+        performSegue(withIdentifier: "toMapPlot", sender: nil)
         
     }
 
@@ -73,12 +75,19 @@ class TableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("before")
-        if segue.identifier == "toMap"{
+        if segue.identifier == "toMapPlot"{
+            print("for plotting")
             let otherViewController = segue.destination as! ViewController
             otherViewController.mode = 2
             print(selectedLong)
             otherViewController.latPassed = selectedLat
             otherViewController.longPassed = selectedLong
+            otherViewController.selectedName = selectedName
+        }
+        else if segue.identifier == "toMapAdd"{
+            print("for adding")
+            let otherViewController = segue.destination as! ViewController
+            otherViewController.mode = 1
         }
     }
 }

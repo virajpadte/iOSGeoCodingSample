@@ -25,6 +25,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="toMapPlot" id="IuN-CX-XHH"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -35,7 +38,7 @@
                     <navigationItem key="navigationItem" title="Places" id="yQ3-a3-Ril">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="h5h-Vk-46D">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" identifier="toMap" id="pHE-ws-cLU"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="toMapAdd" id="pHE-ws-cLU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -92,4 +95,7 @@
             <point key="canvasLocation" x="428" y="44.527736131934034"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="IuN-CX-XHH"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -18,6 +18,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
     var mode = 1
     var longPassed:CLLocationDegrees = 0.0
     var latPassed:CLLocationDegrees = 0.0
+    var selectedName = ""
     let locMan = CLLocationManager()
     
     
@@ -25,6 +26,10 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         print("maps always")
+        
+        print("passsed values  \(latPassed) and \(longPassed)")
+        
+        
         //check if somedata is present in permanent memory
         if let dataStored = UserDefaults.standard.object(forKey: "pem_data") as? [String : [String : CLLocationDegrees]]{
             print(dataStored)
@@ -40,19 +45,18 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
             longPress.minimumPressDuration = 2
             map.addGestureRecognizer(longPress)
         }else if mode == 2{
-            //plot mode
+            print("plot_mode")
             //plot the location
-            map.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latPassed, longitude: longPassed), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)), animated: true)
+            let span:MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+            let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latPassed, longitude: longPassed)
+            let region = MKCoordinateRegion(center: coordinate, span: span)
+            map.setRegion(region, animated: true)
+            
             //insert the annotation
             let annotation = MKPointAnnotation()
-            annotation.title = "old place"
-            annotation.coordinate = CLLocationCoordinate2D(latitude: latPassed, longitude: longPassed)
+            annotation.title = selectedName
+            annotation.coordinate =  coordinate
             map.addAnnotation(annotation)
-            //reset to add mode
-            mode = 1
-            latPassed = 0.0
-            longPassed = 0.0
-             
         }
     
     }
