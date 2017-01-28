@@ -71,7 +71,24 @@ class TableViewController: UITableViewController {
         
     }
 
-        
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            //remove from permanent data
+            
+            let selectedName = Array(tempPlacesDict.keys)[indexPath.row]
+            tempPlacesDict.removeValue(forKey: selectedName)
+            print(tempPlacesDict)
+            //update permanent storage
+            UserDefaults.standard.set(tempPlacesDict, forKey: "pem_data")
+            //update table
+            table.reloadData()
+        }
+    }
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("before")
